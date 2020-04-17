@@ -16,7 +16,7 @@ export default function App() {
   
   useEffect( () => {
     api.get('repositories').then( response => {
-      setRepositories(response.data.results);
+      setRepositories(response.data);
     });
   }, []);
 
@@ -25,7 +25,7 @@ export default function App() {
     console.log(resp, id);
     const newrepository = repositories.map( repo => {
       if(repo.id === id){
-        return resp.data.repository;
+        return resp.data;
       }else{
         return repo;
       }
